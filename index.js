@@ -28,4 +28,34 @@ function timerFunc() {
 
 var timer = setTimeout(timerFunc, 1000);
 
+
+const devs = ['314135031029170197'];
+
+
+ client.on('message', message => {
+var prefix = "$"
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+  if(!args) return message.channel.send(`${prefix}say <words>`);
+
+if (command == "say") {
+if(!message.guild.member(message.author).hasPermission("ADMINSTRATOR")) return message.reply("*لا تملك الصلاحيات المطلوبه**");
+
+message.channel.send(args.join("  "))
+    message.delete();
+  }
+
+
+
+}); 
+
+
+
+
+
 client.login(process.env.BOT_TOKEN);
