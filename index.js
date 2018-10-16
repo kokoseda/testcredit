@@ -33,7 +33,7 @@ const devs = ['314135031029170197'];
 
 
  client.on('message', message => {
-var prefix = "$"
+var prefix = "."
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
 
